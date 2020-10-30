@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import express from "express";
 // import passport from "passport";
-// import bodyParser from "body-parser";
+import bodyParser from "body-parser";
 import login from "./routes/authentication.js";
 
 const app = express();
@@ -10,8 +10,8 @@ const app = express();
 // const pyramid = require("./routes/api/pyramid");
 // const investment = require("./routes/api/investment");
 
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //Handle cors
 app.use((req, res, next) => {
@@ -35,9 +35,10 @@ app.use((req, res, next) => {
 // require("./configs/passport")(passport);
 
 app.use("/api/auth", login);
+
 // app.use("/api/pyramid", pyramid);
 // app.use("/api/investment", investment);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5008;
 
 app.listen(port, () => console.log(`Server running on Port ${port}`));

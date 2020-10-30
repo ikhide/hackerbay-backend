@@ -7,9 +7,6 @@ export const validateLoginInput = (data) => {
   data.username = !isEmpty(data.username) ? data.username : "";
   data.password = !isEmpty(data.password) ? data.password : "";
 
-  if (data.username) {
-    errors.email = "Email is invalid";
-  }
   if (Validator.isEmpty(data.username)) {
     errors.email = "Username field is required";
   }

@@ -1,6 +1,9 @@
 import { validateLoginInput } from "../validation/login.js";
+import { createToken } from "../configs/passport.js";
+import express from "express";
+const router = express.Router();
 
-const login = () => {
+router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
   const { username, password } = req.body;
@@ -8,9 +11,15 @@ const login = () => {
   if (!isValid) {
     return res.status(400).json(errors);
   }
-};
 
-export default login;
+  const token = createToken({ username, password });
+  return res.status(200).json({
+    status: "success",
+    token,
+  });
+});
+
+export default router;
 // const router = express.Router();
 // const keys = require("../../config/keys").secretOrKey;
 // const jwt = require("jsonwebtoken");
