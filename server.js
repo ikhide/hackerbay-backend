@@ -3,6 +3,7 @@ import express from "express";
 // import passport from "passport";
 import bodyParser from "body-parser";
 import login from "./routes/authentication.js";
+import jsonPatch from "./routes/jsonPatch.js";
 
 const app = express();
 
@@ -34,7 +35,8 @@ app.use((req, res, next) => {
 // passport config
 // require("./configs/passport")(passport);
 
-app.use("/api/auth", login);
+app.use("/api/login", login);
+app.use("/api/json-patch", jsonPatch);
 
 // app.use("/api/pyramid", pyramid);
 // app.use("/api/investment", investment);

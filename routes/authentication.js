@@ -3,7 +3,7 @@ import { createToken } from "../configs/passport.js";
 import express from "express";
 const router = express.Router();
 
-router.post("/login", (req, res) => {
+router.post("/", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
   const { username, password } = req.body;
