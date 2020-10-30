@@ -1,5 +1,5 @@
 import { validateLoginInput } from "../validation/login.js";
-import { createToken } from "../configs/passport.js";
+import { generateToken } from "../utils/token.js";
 import express from "express";
 const router = express.Router();
 
@@ -12,7 +12,7 @@ router.post("/", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const token = createToken({ username, password });
+  const token = generateToken({ username, password });
   return res.status(200).json({
     status: "success",
     token,

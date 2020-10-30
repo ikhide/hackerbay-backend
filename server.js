@@ -4,12 +4,9 @@ import express from "express";
 import bodyParser from "body-parser";
 import login from "./routes/authentication.js";
 import jsonPatch from "./routes/jsonPatch.js";
+import { verifyToken } from "./utils/token.js";
 
 const app = express();
-
-// const users = require("./routes/api/users");
-// const pyramid = require("./routes/api/pyramid");
-// const investment = require("./routes/api/investment");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -29,14 +26,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// passport middleware
-// app.use(passport.initialize());
-
-// passport config
-// require("./configs/passport")(passport);
-
 app.use("/api/login", login);
-app.use("/api/json-patch", jsonPatch);
+app.use("/api/json-patch", verifyToken, jsonPatch);
 
 // app.use("/api/pyramid", pyramid);
 // app.use("/api/investment", investment);
