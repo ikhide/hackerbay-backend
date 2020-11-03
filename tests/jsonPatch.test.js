@@ -4,7 +4,7 @@ import app from "../server.js";
 import { generateToken } from "../utils/token.js";
 
 chai.use(chaiHttp);
-const { expect, assert } = chai;
+const { expect } = chai;
 const name = "username";
 const password = "password";
 const token = generateToken({ name, password });
