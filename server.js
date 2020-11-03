@@ -1,9 +1,9 @@
 /* eslint-disable import/extensions */
 import express from "express";
-// import passport from "passport";
 import bodyParser from "body-parser";
 import login from "./routes/authentication.js";
 import jsonPatch from "./routes/jsonPatch.js";
+import thumbnail from "./routes/thumbnail.js";
 import { verifyToken } from "./utils/token.js";
 
 const app = express();
@@ -28,10 +28,10 @@ app.use((req, res, next) => {
 
 app.use("/api/login", login);
 app.use("/api/json-patch", verifyToken, jsonPatch);
+app.use("/api/thumbnail", verifyToken, thumbnail);
 
-// app.use("/api/pyramid", pyramid);
-// app.use("/api/investment", investment);
-
-const port = process.env.PORT || 5008;
+const port = process.env.PORT || 5009;
 
 app.listen(port, () => console.log(`Server running on Port ${port}`));
+
+export default app;
