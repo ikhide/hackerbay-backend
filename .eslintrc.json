@@ -1,23 +1,24 @@
-// {
-//   "env": {
-//     "browser": true,
-//     "es6": true,
-//     "node": true,
-//     "mocha": true
-//   },
-//   "extends": ["airbnb-base"],
-//   "parserOptions": {
-//     "ecmaVersion": 12,
-//     "sourceType": "module"
-//   },
-//   "rules": {
-//     "quotes": [0, "double"],
-//     "comma-dangle": ["error", "never"],
-//     "no-param-reassign": [
-//       "error",
-//       {
-//         "props": false
-//       }
-//     ]
-//   }
-// }
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "mocha": true,
+    "sourceType": "module"
+  }
+  //   "extends": ["airbnb-base"],
+  //   "parserOptions": {
+  //     "ecmaVersion": 12,
+  //     "sourceType": "module"
+  //   },
+  //   "rules": {
+  //     "quotes": [0, "double"],
+  //     "comma-dangle": ["error", "never"],
+  //     "no-param-reassign": [
+  //       "error",
+  //       {
+  //         "props": false
+  //       }
+  //     ]
+  //   }
+}

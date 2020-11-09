@@ -1,0 +1,108 @@
+openapi: 3.0.0
+info:
+  title: Hacker bay
+  description: "## Microservice API for Hackerbay recruitment\r\n\r\nIt contains the following requests\r\n\r\n* login\r\n* Json patch\r\n* create thumbnail\r\n* view logs"
+  version: 1.0.0
+servers:
+  - url: 'http://localhost'
+paths:
+  /api/login:
+    post:
+      tags:
+        - General
+      summary: Login
+      description: "API endpoint to *Login a user. Any username and password combination is valid.\r\n> A successful Login request will result in a \"HTTP 200\" status code"
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/json-patch:
+    patch:
+      tags:
+        - General
+      summary: Json Patch
+      description: "API endpoint to update a json using a *json-patch. The json to be updated must be a valid json object and patch and array.\r\n> A successful patch request will result in a \"HTTP 200\" status code\r\n> A failed request will result in a \"HTTP 400\" status code"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                baseJson:
+                  baz: qux
+                  foo: bar
+                jsonPatchObject:
+                  - op: replace
+                    path: /baz
+                    value: boo
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImlraGlkZSIsInBhc3N3b3JkIjoiYXRha3B1IiwiaWF0IjoxNjA0NjE0MzAxLCJleHAiOjE2MDQ2MTc5MDF9.OzEbUYnqpsR3v5kyZ2Uep5hguspU_fqKICSXqovg3qk
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/thumbnail:
+    post:
+      tags:
+        - General
+      summary: Create thumbnail
+      description: "API endpoint to *create-thumbnail from a valid image url.\r\n> A successful request will result in a \"HTTP 200\" status code\r\n> A failed request will result in a \"HTTP 400\" status code"
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImlraGlkZSIsInBhc3N3b3JkIjoiYXRha3B1IiwiaWF0IjoxNjA0NjE0MzAxLCJleHAiOjE2MDQ2MTc5MDF9.OzEbUYnqpsR3v5kyZ2Uep5hguspU_fqKICSXqovg3qk
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/log:
+    get:
+      tags:
+        - General
+      summary: View Logs
+      description: "API endpoint to view the API *logs.\r\n> A successful request will result in a \"HTTP 200\" status code"
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImlraGlkZSIsInBhc3N3b3JkIjoiYXRha3B1IiwiaWF0IjoxNjA0NjE0MzAxLCJleHAiOjE2MDQ2MTc5MDF9.OzEbUYnqpsR3v5kyZ2Uep5hguspU_fqKICSXqovg3qk
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

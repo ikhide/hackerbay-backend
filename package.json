@@ -5,8 +5,10 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "mocha tests/**/*.js",
-    "server": "nodemon server.js"
+    "test": "cross-env-shell NODE_ENV=test && nyc mocha tests/**/*.js --require @babel/register  --reporter spec --timeout 25000",
+    "server": "nodemon --exec babel-node server.js --experimental-json-modules",
+    "start": "node --experimental-json-modules server.js ",
+    "coverage": "nyc npm run test"
   },
   "repository": {
     "type": "git",
@@ -22,27 +24,32 @@
     "app-root-path": "^3.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
     "express": "^4.17.1",
     "image-thumbnail": "^1.0.11",
     "jsonpatch": "^3.0.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.6",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "postman-to-openapi": "^1.5.1",
+    "swagger-ui-express": "^4.1.4",
     "validator": "^13.1.17",
-    "winston": "^3.3.3"
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.9.5",
+    "babel-plugin-istanbul": "^6.0.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "eslint": "^7.12.1",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
-    "mocha": "^8.2.0"
+    "mocha": "^8.2.0",
+    "nodemon": "^2.0.6",
+    "nyc": "^15.1.0",
+    "winston": "^3.3.3"
   }
 }

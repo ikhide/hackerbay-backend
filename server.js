@@ -8,6 +8,11 @@ import { verifyToken } from "./utils/token.js";
 import morgan from "morgan";
 import winston from "./config/winston.js";
 import logging from "./routes/logging.js";
+import apiconvert from "./routes/api.js";
+import swaggerUi from "swagger-ui-express";
+// import * as swaggerJson from "./docs/swagger.json";
+import YAML from "yamljs";
+const swaggerDocument = YAML.load("./docs/swagger.yaml");
 
 const app = express();
 
@@ -17,18 +22,6 @@ app.use(bodyParser.json());
 
 // Logging
 app.use(morgan("combined", { stream: winston.stream }));
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-//   // add this line to include winston logging
-//   winston.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
-
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
 
 //Handle cors
 app.use((req, res, next) => {
@@ -49,6 +42,9 @@ app.use("/api/login", login);
 app.use("/api/json-patch", verifyToken, jsonPatch);
 app.use("/api/thumbnail", verifyToken, thumbnail);
 app.use("/api/log", verifyToken, logging);
+app.use("/api/apiconvert", apiconvert);
+// app.use("/api-docs", swaggerUi.serve, swaggerUi(swaggerJson));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const port = process.env.PORT || 5009;
 
