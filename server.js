@@ -8,9 +8,7 @@ import { verifyToken } from "./utils/token.js";
 import morgan from "morgan";
 import winston from "./config/winston.js";
 import logging from "./routes/logging.js";
-import apiconvert from "./routes/api.js";
 import swaggerUi from "swagger-ui-express";
-// import * as swaggerJson from "./docs/swagger.json";
 import YAML from "yamljs";
 const swaggerDocument = YAML.load("./docs/swagger.yaml");
 
@@ -42,8 +40,6 @@ app.use("/api/login", login);
 app.use("/api/json-patch", verifyToken, jsonPatch);
 app.use("/api/thumbnail", verifyToken, thumbnail);
 app.use("/api/log", verifyToken, logging);
-app.use("/api/apiconvert", apiconvert);
-// app.use("/api-docs", swaggerUi.serve, swaggerUi(swaggerJson));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const port = process.env.PORT || 5009;
