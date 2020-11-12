@@ -4,7 +4,7 @@ info:
   description: "## Microservice API for Hackerbay recruitment\r\n\r\nIt contains the following requests\r\n\r\n* login\r\n* Json patch\r\n* create thumbnail\r\n* view logs"
   version: 1.0.0
 servers:
-  - url: 'http://localhost'
+  - url: "http://localhost"
 paths:
   /api/login:
     post:
@@ -15,7 +15,7 @@ paths:
       requestBody:
         content: {}
       responses:
-        '200':
+        "200":
           description: Successful response
           content:
             application/json: {}
@@ -52,7 +52,7 @@ paths:
             type: string
           example: application/json
       responses:
-        '200':
+        "200":
           description: Successful response
           content:
             application/json: {}
@@ -78,7 +78,7 @@ paths:
             type: string
           example: application/json
       responses:
-        '200':
+        "200":
           description: Successful response
           content:
             application/json: {}
@@ -102,7 +102,7 @@ paths:
             type: string
           example: application/json
       responses:
-        '200':
+        "200":
           description: Successful response
           content:
             application/json: {}
