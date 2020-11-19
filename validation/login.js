@@ -2,7 +2,7 @@ import Validator from "validator";
 import isEmpty from "./is-empty.js";
 
 export const validateLoginInput = (data) => {
-  let errors = {};
+  const errors = {};
 
   data.username = !isEmpty(data.username) ? data.username : "";
   data.password = !isEmpty(data.password) ? data.password : "";
@@ -17,6 +17,6 @@ export const validateLoginInput = (data) => {
 
   return {
     errors,
-    isValid: isEmpty(errors),
+    isValid: isEmpty(errors)
   };
 };

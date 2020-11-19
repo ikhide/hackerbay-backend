@@ -18,7 +18,7 @@ describe("Image thumbnail", () => {
         .set("Accept", "application/json")
         .send({
           url:
-            "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
+            "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(401);
@@ -38,7 +38,7 @@ describe("Image thumbnail", () => {
         )
         .send({
           url:
-            "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
+            "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(401);
@@ -57,7 +57,7 @@ describe("Image thumbnail", () => {
         .set("Accept", "application/json")
         .set("Authorization", `Bearer ${token}`)
         .send({
-          url: "",
+          url: ""
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(400);
@@ -74,7 +74,7 @@ describe("Image thumbnail", () => {
         .set("Authorization", `Bearer ${token}`)
         .send({
           url:
-            "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jp",
+            "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jp"
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(400);
@@ -92,7 +92,7 @@ describe("Image thumbnail", () => {
           .set("Authorization", `Bearer ${token}`)
           .send({
             url:
-              "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
+              "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
           })
           .end((err, res) => {
             expect(res.statusCode).to.equal(200);

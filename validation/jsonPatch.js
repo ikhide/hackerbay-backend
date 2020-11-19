@@ -2,7 +2,7 @@ import Validator from "validator";
 import isEmpty from "./is-empty.js";
 
 export const validateJsonInput = (data) => {
-  let errors = {};
+  const errors = {};
 
   data.baseJson = !isEmpty(data.baseJson) ? data.baseJson : "";
   data.jsonPatchObject = !isEmpty(data.jsonPatchObject)
@@ -25,6 +25,6 @@ export const validateJsonInput = (data) => {
 
   return {
     errors,
-    isValid: isEmpty(errors),
+    isValid: isEmpty(errors)
   };
 };

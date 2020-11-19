@@ -9,7 +9,7 @@
     "server": "nodemon --exec babel-node server.js --experimental-json-modules",
     "start": "node --experimental-json-modules server.js ",
     "coverage": "nyc npm run test",
-    "lint": "eslint ./ --quiet"
+    "lint": "eslint ./ --fix"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,8 @@
     "passport-jwt": "^4.0.0",
     "swagger-ui-express": "^4.1.4",
     "validator": "^13.1.17",
-    "yamljs": "^0.3.0"
+    "yamljs": "^0.3.0",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -47,11 +48,12 @@
     "chai-http": "^4.3.0",
     "eslint": "^7.12.1",
     "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
     "mocha": "^8.2.0",
     "nodemon": "^2.0.6",
     "nyc": "^15.1.0",
-    "prettier": "2.1.2",
-    "winston": "^3.3.3"
+    "prettier": "^2.1.2"
   }
 }

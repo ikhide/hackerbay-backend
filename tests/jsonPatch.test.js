@@ -19,9 +19,9 @@ describe("json patch", () => {
         .send({
           baseJson: {
             baz: "qux",
-            foo: "bar",
+            foo: "bar"
           },
-          jsonPatchObject: [{ op: "replace", path: "/baz", value: "boo" }],
+          jsonPatchObject: [{ op: "replace", path: "/baz", value: "boo" }]
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(401);
@@ -42,9 +42,9 @@ describe("json patch", () => {
         .send({
           baseJson: {
             baz: "qux",
-            foo: "bar",
+            foo: "bar"
           },
-          jsonPatchObject: [{ op: "replace", path: "/baz", value: "boo" }],
+          jsonPatchObject: [{ op: "replace", path: "/baz", value: "boo" }]
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(401);
@@ -63,7 +63,7 @@ describe("json patch", () => {
         .set("Accept", "application/json")
         .set("Authorization", `Bearer ${token}`)
         .send({
-          jsonPatchObject: [{ op: "replace", path: "/baz", value: "boo" }],
+          jsonPatchObject: [{ op: "replace", path: "/baz", value: "boo" }]
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(400);
@@ -80,8 +80,8 @@ describe("json patch", () => {
         .send({
           baseJson: {
             baz: "qux",
-            foo: "bar",
-          },
+            foo: "bar"
+          }
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(400);
@@ -102,7 +102,7 @@ describe("json patch", () => {
         .set("Authorization", `Bearer ${token}`)
         .send({
           baseJson: "string",
-          jsonPatchObject: [{ op: "replace", path: "/baz", value: "boo" }],
+          jsonPatchObject: [{ op: "replace", path: "/baz", value: "boo" }]
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(400);
@@ -121,9 +121,9 @@ describe("json patch", () => {
         .send({
           baseJson: {
             baz: "qux",
-            foo: "bar",
+            foo: "bar"
           },
-          jsonPatchObject: "string",
+          jsonPatchObject: "string"
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(400);
@@ -146,9 +146,9 @@ describe("json patch", () => {
         .send({
           baseJson: {
             baz: "qux",
-            foo: "bar",
+            foo: "bar"
           },
-          jsonPatchObject: [{ op: "replace", path: "/baz", value: "boo" }],
+          jsonPatchObject: [{ op: "replace", path: "/baz", value: "boo" }]
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);

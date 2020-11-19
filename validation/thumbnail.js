@@ -2,7 +2,7 @@ import Validator from "validator";
 import isEmpty from "./is-empty.js";
 
 export const validateThumbnailInput = (data) => {
-  let errors = {};
+  const errors = {};
 
   data.url = !isEmpty(data.url) ? data.url : "";
 
@@ -21,6 +21,6 @@ export const validateThumbnailInput = (data) => {
 
   return {
     errors,
-    isValid: isEmpty(errors),
+    isValid: isEmpty(errors)
   };
 };

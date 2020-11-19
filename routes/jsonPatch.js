@@ -1,6 +1,7 @@
 import jsonpatch from "jsonpatch";
-import { validateJsonInput } from "../validation/jsonPatch.js";
 import express from "express";
+import { validateJsonInput } from "../validation/jsonPatch.js";
+
 const router = express.Router();
 
 router.patch("/", (req, res) => {
@@ -14,7 +15,7 @@ router.patch("/", (req, res) => {
   const patchedJson = jsonpatch.apply_patch(baseJson, jsonPatchObject);
   return res.status(200).json({
     status: "success",
-    jsonObject: patchedJson,
+    jsonObject: patchedJson
   });
 });
 

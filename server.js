@@ -1,27 +1,28 @@
 /* eslint-disable import/extensions */
 import express from "express";
 import bodyParser from "body-parser";
+import morgan from "morgan";
+import swaggerUi from "swagger-ui-express";
+import YAML from "yamljs";
 import login from "./routes/authentication.js";
 import jsonPatch from "./routes/jsonPatch.js";
 import thumbnail from "./routes/thumbnail.js";
 import { verifyToken } from "./utils/token.js";
-import morgan from "morgan";
 import winston from "./config/winston.js";
 import logging from "./routes/logging.js";
-import swaggerUi from "swagger-ui-express";
-import YAML from "yamljs";
+
 const swaggerDocument = YAML.load("./docs/swagger.yaml");
 
 const app = express();
 
-//Body Parser
+// Body Parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Logging
 app.use(morgan("combined", { stream: winston.stream }));
 
-//Handle cors
+// Handle cors
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
